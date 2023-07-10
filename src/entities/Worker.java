@@ -8,21 +8,22 @@ import entities.enums.WorkerLevel;
 
 public class Worker {
 
-	String name;
-	Double baseSalary;
+	private String name;
+	private Double baseSalary;
+	private WorkerLevel level;
 	
-	WorkerLevel level;
+	private Department department;
 	List<HourContract> contracts = new ArrayList<>();
 	
 	public Worker() {
 		
 	}
 	
-	public Worker(String name, Double baseSalary, WorkerLevel level) {
-		super();
+	public Worker(String name, Double baseSalary, WorkerLevel level, Department department) {
 		this.name = name;
 		this.baseSalary = baseSalary;
 		this.level = level;
+		this.department = department;
 	}
 
 	public String getName() {
@@ -61,6 +62,14 @@ public class Worker {
 		contracts.remove(contract);
 	}
 	
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
 	public Double income (Integer year, Integer month) {
 		double sum = baseSalary;
 		
